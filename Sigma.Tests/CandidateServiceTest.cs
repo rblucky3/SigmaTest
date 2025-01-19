@@ -40,11 +40,6 @@ namespace Sigma.Test
                 .Setup(repo => repo.GetByEmailAsync(candidateDto.Email))
                 .ReturnsAsync((Candidate)null); // Candidate doesn't exist
 
-
-            var candidate1 = _mockCandidateRepository
-               .Setup(repo => repo.GetByEmailAsync(candidateDto.Email))
-               .ReturnsAsync(candidateDto);
-
             // Act
             var result= await _candidateService.AddOrUpdateCandidateAsync(candidateDto);
 
