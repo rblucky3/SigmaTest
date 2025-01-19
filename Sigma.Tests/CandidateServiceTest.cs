@@ -3,8 +3,6 @@ using Sigma.Core.Entities;
 using Sigma.Service.Settings.Services;
 using Sigma.Service.Settings.Interfaces;
 using Sigma.Repository.Settings.Interfaces;
-using NUnit.Framework;
-using System.ComponentModel.DataAnnotations;
 
 namespace Sigma.Test
 {
