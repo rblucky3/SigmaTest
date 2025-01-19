@@ -37,16 +37,53 @@ namespace Sigma.API.Controllers
                 });
             }
 
-            await _candidateService.AddOrUpdateCandidateAsync(candidate);
+            var successResponse = new ApiResponse();
 
-            var successResponse = new ApiResponse
+            var result=  await _candidateService.AddOrUpdateCandidateAsync(candidate);       
+            if(result)
             {
-                StatusCode = 200,
-                Message = "Candidate  added/updated successfully!",
-
-            };
+                successResponse.StatusCode = 200;
+                successResponse.Message = "Candidate  added/updated successfully!";
+            }
+            else
+            {
+                successResponse.StatusCode = 200;
+                successResponse.Message = "Some Error Occurred!";
+            }
 
             return Ok(successResponse);
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> GetAllCandidates()
+        {
+            try
+            {
+                var candidates = await _candidateService.GetAllCandidateAsync();
+
+                if (candidates == null || !candidates.Any())
+                {
+                    return NotFound(new { message = "No candidates found." });
+                }
+
+                return Ok(candidates);
+            }
+            catch (Exception ex)
+            {
+                // Log the error
+                return StatusCode(500, new { message = "An error occurred while fetching records.", details = ex.Message });
+            }
+        }
+        [HttpGet("{email}")]
+        public async Task<IActionResult> GetCandidateByEmail(string email)
+        {
+            var candidate = await _candidateService.GetCandidateByEmailAsync(email);
+            if (candidate == null)
+            {
+                return NotFound(new { message = "Candidate not found" });
+            }
+
+            return Ok(candidate);
         }
     }
 }
