@@ -1,0 +1,17 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/.vs/Sigma
+/Sigma.API/bin/Debug/net8.0
+/Sigma.API/obj
+/Sigma.Core/bin/Debug/net8.0
+/Sigma.Core/obj
+/Sigma.Data/bin/Debug/net8.0
+/Sigma.Data/obj
+/Sigma.Repository/bin/Debug/net8.0
+/Sigma.Repository/obj
+/Sigma.Service/bin/Debug/net8.0
+/Sigma.Service/obj
+/Sigma.Test/bin/Debug/net8.0
+/Sigma.Test/obj
