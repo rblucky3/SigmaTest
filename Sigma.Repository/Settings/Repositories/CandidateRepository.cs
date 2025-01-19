@@ -14,9 +14,9 @@ namespace Sigma.Repository.Settings.Repositories
         {
             _context = context;
         }
-        public async Task<List<Candidate>> GetAllAsync()
+        public async Task<IEnumerable<Candidate>> GetAllAsync()
         {
-            throw new NotImplementedException();
+            return await _context.Candidates.ToListAsync();
         }
         public async Task<Candidate> GetByEmailAsync(string email)
         {

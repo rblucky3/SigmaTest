@@ -4,6 +4,8 @@ namespace Sigma.Service.Settings.Interfaces
 {
     public interface ICandidateService
     {
-        Task AddOrUpdateCandidateAsync(Candidate candidate);
+        Task<bool> AddOrUpdateCandidateAsync(Candidate candidate);
+        Task<IEnumerable<Candidate>> GetAllCandidateAsync();
+        Task<Candidate> GetCandidateByEmailAsync(string email);
     }
 }
