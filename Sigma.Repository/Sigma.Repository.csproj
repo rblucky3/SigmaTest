@@ -6,4 +6,9 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Sigma.Core\Sigma.Core.csproj" />
+    <ProjectReference Include="..\Sigma.Data\Sigma.Data.csproj" />
+  </ItemGroup>
+
 </Project>
